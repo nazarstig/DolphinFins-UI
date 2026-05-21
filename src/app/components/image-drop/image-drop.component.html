@@ -1,0 +1,28 @@
+<div
+  class="drop-zone"
+  [class.drag-over]="isDragOver"
+  [class.has-preview]="previewUrl"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)"
+  (click)="fileInput.click()"
+>
+  <input
+    #fileInput
+    type="file"
+    accept="image/*"
+    class="file-input"
+    (change)="onFileSelected($event)"
+  />
+
+  <ng-container *ngIf="!previewUrl">
+    <div class="drop-icon">&#128444;</div>
+    <p class="drop-label">{{ label }}</p>
+  </ng-container>
+
+  <ng-container *ngIf="previewUrl">
+    <img class="preview-image" [src]="previewUrl" [alt]="fileName ?? 'preview'" />
+    <p class="file-name">{{ fileName }}</p>
+    <button class="clear-btn" type="button" (click)="clearImage($event)">&#x2715; Remove</button>
+  </ng-container>
+</div>

@@ -1,1 +1,15 @@
-<p>main-page works</p>
+<div class="main-container">
+  <h1 class="title">Identify dolphin by its fin</h1>
+  <div class="content-div">
+    <div class="image-drop-div">
+      <app-image-drop
+        label="Drop an image here or click to browse"
+        (fileDropped)="onImageDropped($event)">
+      </app-image-drop>
+      <button mat-raised-button color="primary" class="identify-btn" (click)="onIdentifyClick()">Identify</button>
+    </div>
+    <div class="results-summary-div">
+      <app-results-summary [results]="testResults" [isLoading]="false"></app-results-summary>
+    </div>
+  </div>
+</div>

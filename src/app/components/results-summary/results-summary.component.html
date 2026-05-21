@@ -1,0 +1,38 @@
+<div class="results-container">
+  <h2 class="results-title">Identification Results</h2>
+
+  <div *ngIf="isLoading" class="state-message">
+    <mat-spinner diameter="40"></mat-spinner>
+    <p>Identifying dolphin…</p>
+  </div>
+
+  <div *ngIf="!isLoading && results.length === 0" class="state-message empty">
+    <p>No results yet. Drop an image and press <strong>Identify</strong>.</p>
+  </div>
+
+  <div *ngIf="!isLoading && results.length > 0" class="results-list">
+    <mat-card *ngFor="let result of results; let i = index" class="result-card">
+      <div class="result-rank">{{ i + 1 }}</div>
+
+      <img
+        *ngIf="result.referenceImageUrl"
+        class="result-image"
+        [src]="result.referenceImageUrl"
+        [alt]="result.name ?? result.dolphinId"
+      />
+
+      <div class="result-info">
+        <div class="result-name">{{ result.name ?? 'Unknown' }}</div>
+        <div class="result-id">ID: {{ result.dolphinId }}</div>
+        <div class="confidence-bar-wrapper">
+          <mat-progress-bar
+            mode="determinate"
+            [value]="result.confidence * 100"
+            color="primary"
+          ></mat-progress-bar>
+          <span class="confidence-label">{{ (result.confidence * 100) | number: '1.1-1' }}%</span>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

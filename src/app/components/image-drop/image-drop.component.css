@@ -1,0 +1,77 @@
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 200px;
+  border: 2px dashed #90caf9;
+  border-radius: 8px;
+  background-color: #f5faff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+.drop-zone:hover {
+  border-color: #1976d2;
+  background-color: #e3f2fd;
+}
+
+.drop-zone.drag-over {
+  border-color: #1976d2;
+  background-color: #bbdefb;
+}
+
+.drop-zone.has-preview {
+  border-style: solid;
+}
+
+.file-input {
+  display: none;
+}
+
+.drop-icon {
+  font-size: 48px;
+  line-height: 1;
+  color: #90caf9;
+}
+
+.drop-label {
+  margin: 0;
+  color: #546e7a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.file-name {
+  margin: 0;
+  font-size: 12px;
+  color: #546e7a;
+  word-break: break-all;
+  text-align: center;
+}
+
+.clear-btn {
+  background: none;
+  border: 1px solid #ef9a9a;
+  color: #e53935;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.clear-btn:hover {
+  background-color: #ffebee;
+}
