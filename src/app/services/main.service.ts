@@ -26,8 +26,8 @@ export class MainService {
 
   identify(image: File): Observable<IdentificationResult[]> {
     const formData = new FormData();
-    formData.append('image', image);
-    return of(this.testResults);
-    //return this.http.post<IdentificationResult[]>(`${BASE_URL}/identify`, formData);
+    formData.append('file', image);
+    return this.http.post<IdentificationResult[]>(`${BASE_URL}/FileUpload/upload`, formData);
+    //return of(this.testResults);
   }
 }
