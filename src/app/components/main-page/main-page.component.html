@@ -1,16 +1,15 @@
 <div class="main-container">
-  <h1 class="title">Identify dolphin by its fin</h1>
+  <h1 class="main-title">🐬 Find My Fin</h1>
   <div class="content-div">
     <div class="image-drop-div">
       <app-image-drop
-        label="Drop an image here or click to browse"
         (fileDropped)="onImageDropped($event)">
       </app-image-drop>
       <button mat-raised-button color="primary" class="identify-btn" (click)="onIdentifyClick()">Identify</button>
     </div>
     <div class="results-summary-div">
       <app-results-summary [results]="(identificationResults$ | async) ?? []" [isLoading]="false"></app-results-summary>
-      <button class="clear-btn" mat-raised-button (click)="clear()" color="warn">Clear</button>
+      <button *ngIf="(identificationResults$ | async)?.length" class="clear-btn" mat-raised-button (click)="clear()" color="warn">Clear</button>
     </div>
   </div>
 </div>
