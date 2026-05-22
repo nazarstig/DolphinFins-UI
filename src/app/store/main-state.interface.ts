@@ -1,7 +1,7 @@
 import { IdentificationResult } from '../models/identification-result';
 
 export interface IMainState {
-  identificationResults: IdentificationResult[];
+  identificationResult: IdentificationResult | null;
   selectedImage: File | null;
   isLoading: boolean;
 }

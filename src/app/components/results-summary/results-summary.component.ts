@@ -10,6 +10,6 @@ import { IdentificationResult } from '../../models/identification-result';
 })
 export class ResultsSummaryComponent {
 
-  @Input() results: IdentificationResult[] = [];
+  @Input() result: IdentificationResult | null = null;
   @Input() isLoading: boolean = false;
 }

@@ -1,6 +1,19 @@
+export interface TopMatch {
+  id: string;
+  similarity: number;
+  photo_url: string;
+}
+
+export interface Signal {
+  similarity: number;
+  gap: number;
+  consensus: number;
+}
+
 export interface IdentificationResult {
-  dolphinId: string;
-  name: string | null;
-  confidence: number; // 0–1
-  referenceImageUrl?: string;
+  decision: string;
+  predicted_id: string;
+  verdict: string;
+  signals: Signal;
+  top_matches: TopMatch[];
 }

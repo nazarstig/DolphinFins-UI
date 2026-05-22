@@ -8,8 +8,8 @@
       <button mat-raised-button color="primary" class="identify-btn" (click)="onIdentifyClick()">Identify</button>
     </div>
     <div class="results-summary-div">
-      <app-results-summary [results]="(identificationResults$ | async) ?? []" [isLoading]="false"></app-results-summary>
-      <button *ngIf="(identificationResults$ | async)?.length" class="clear-btn" mat-raised-button (click)="clear()" color="warn">Clear</button>
+      <app-results-summary [result]="identificationResult$ | async" [isLoading]="false"></app-results-summary>
+      <button *ngIf="(identificationResult$ | async)" class="clear-btn" mat-raised-button (click)="clear()" color="warn">Clear</button>
     </div>
   </div>
 </div>

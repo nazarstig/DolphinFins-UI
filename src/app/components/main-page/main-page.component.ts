@@ -13,22 +13,9 @@ import { AddImage, ClearResults, GetIdentificationResults } from '../../store/ma
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent {
-  @Select(MainState.identificationResults) identificationResults$!: Observable<IdentificationResult[]>;
+  @Select(MainState.identificationResult) identificationResult$!: Observable<IdentificationResult | null>;
 
   constructor(private readonly store: Store) {}
-
-  testResults: IdentificationResult[] = [
-    {
-      dolphinId: 'dolphin-123',
-      name: '1234',
-      confidence: 0.95
-    },
-    {
-      dolphinId: 'dolphin-456',
-      name: '1245',
-      confidence: 0.89
-    }
-  ];
 
   onImageDropped(file: File): void {
     this.store.dispatch(new AddImage(file));
