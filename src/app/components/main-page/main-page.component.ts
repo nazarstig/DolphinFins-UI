@@ -1,5 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { IdentificationResult } from '../../models/identification-result';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { MainState } from '../../store/main.state';
+import { AddImage, ClearResults, GetIdentificationResults } from '../../store/main.actions';
 
 @Component({
   selector: 'app-main-page',
@@ -9,6 +13,9 @@ import { IdentificationResult } from '../../models/identification-result';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent {
+  @Select(MainState.identificationResults) identificationResults$!: Observable<IdentificationResult[]>;
+
+  constructor(private readonly store: Store) {}
 
   testResults: IdentificationResult[] = [
     {
@@ -24,10 +31,17 @@ export class MainPageComponent {
   ];
 
   onImageDropped(file: File): void {
-    console.log('Image dropped:', file.name);
+    this.store.dispatch(new AddImage(file));
   }
 
   onIdentifyClick(): void {
-    console.log('Identify button clicked');
+    const file = this.store.selectSnapshot(MainState.selectedImage);
+    if (file) {
+      this.store.dispatch(new GetIdentificationResults(file));
+    }
+  }
+
+  clear(): void {
+    this.store.dispatch(new ClearResults());
   }
 }

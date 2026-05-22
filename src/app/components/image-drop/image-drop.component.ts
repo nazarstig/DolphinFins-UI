@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ClearImage } from '../../store/main.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-image-drop',
@@ -15,7 +17,7 @@ export class ImageDropComponent {
   previewUrl: SafeUrl | null = null;
   fileName: string | null = null;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private store: Store) {}
 
   onDragOver(event: DragEvent): void {
     event.preventDefault();
@@ -52,6 +54,7 @@ export class ImageDropComponent {
     event.stopPropagation();
     this.previewUrl = null;
     this.fileName = null;
+    this.store.dispatch(new ClearImage());
   }
 
   private processFile(file: File): void {
