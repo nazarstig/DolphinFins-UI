@@ -17,9 +17,9 @@ export class MainService {
     verdict: 'Дельфін 1325',
     signals: { similarity: 0.72, gap: 0.24, consensus: 4 },
     top_matches: [
-      { id: '1325', similarity: 0.72, photo_url: '' },
-      { id: '1325', similarity: 0.68, photo_url: '' },
-      { id: '1098', similarity: 0.41, photo_url: '' }
+      { id: '1325', similarity: 0.72, photo_url: 'assets/images/SB25-2105-112.JPG' },
+      { id: '1325', similarity: 0.68, photo_url: 'assets/images/SB25-2123-115.JPG' },
+      { id: '1098', similarity: 0.41, photo_url: 'assets/images/SB25-2126-499.JPG' }
     ]
   };
 

@@ -34,14 +34,16 @@
     <div class="top-matches-title">Top Matches</div>
     <div class="results-list">
       <mat-card *ngFor="let match of result!.top_matches; let i = index" class="result-card">
-        <div class="result-rank">{{ i + 1 }}</div>
-
-        <img
-          *ngIf="match.photo_url"
-          class="result-image"
-          [src]="match.photo_url"
-          [alt]="match.id"
-        />
+        <div class="photo-wrapper">
+          <div class="result-rank">{{ i + 1 }}</div>
+          <img
+            *ngIf="match.photo_url"
+            class="result-image"
+            [src]="match.photo_url"
+            [alt]="match.id"
+          />
+          <div *ngIf="!match.photo_url" class="photo-placeholder">🐬</div>
+        </div>
 
         <div class="result-info">
           <div class="result-name">ID: {{ match.id }}</div>

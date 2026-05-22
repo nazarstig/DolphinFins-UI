@@ -1,7 +1,7 @@
 export interface TopMatch {
   id: string;
   similarity: number;
-  photo_url: string;
+  photo_url: File | string;
 }
 
 export interface Signal {
