@@ -14,6 +14,7 @@ import { AddImage, ClearResults, GetIdentificationResults } from '../../store/ma
 })
 export class MainPageComponent {
   @Select(MainState.identificationResult) identificationResult$!: Observable<IdentificationResult | null>;
+  @Select(MainState.isLoading) isLoading$!: Observable<boolean>;
 
   constructor(private readonly store: Store) {}
 

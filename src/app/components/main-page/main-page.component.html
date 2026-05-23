@@ -1,4 +1,7 @@
 <div class="main-container">
+  <div *ngIf="isLoading$ | async" class="loading-overlay">
+    <mat-spinner diameter="60"></mat-spinner>
+  </div>
   <h1 class="main-title">🐬 Find My Fin</h1>
   <div class="content-div">
     <div class="image-drop-div">
