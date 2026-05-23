@@ -39,7 +39,7 @@
           <img
             *ngIf="match.photo_url"
             class="result-image"
-            [src]="match.photo_url"
+            [src]="resolvePhotoUrl(match.photo_url)"
             [alt]="match.id"
           />
           <div *ngIf="!match.photo_url" class="photo-placeholder">🐬</div>
