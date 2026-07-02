@@ -25,6 +25,7 @@ export class MainPageComponent {
   onIdentifyClick(): void {
     const file = this.store.selectSnapshot(MainState.selectedImage);
     if (file) {
+      this.store.dispatch(new ClearResults());
       this.store.dispatch(new GetIdentificationResults(file));
     }
   }
